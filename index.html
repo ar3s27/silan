@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Ders Çalış Lüften...</title>
+    <style>
+        body {
+            background-color: pink;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Ekranın tamamını kapla */
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        #videoAlani {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #videoOynatici {
+            max-width: 60%;
+            height: auto;
+        }
+        #dilSecimi {
+            font-size: 16px;
+            padding: 8px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kurtul Bu Hayattan</h1>
+    
+    <label for="dilSecimi">Dil Seçimi:</label>
+    <select id="dilSecimi">
+        <option value="tr">Türkçe</option>
+        <option value="en">İngilizce</option>
+        <option value="mt">Motivasyon</option>
+        <option value="kr">Kürtçe</option>
+        <option value="ab">Arapca</option>
+        <option value="gr">Almanca</option>
+        <option value="bn">BONUS</option>
+    </select>
+    
+    <div id="videoAlani">
+        <video id="videoOynatici" width="640" height="360" controls>
+            <source src="videos/türkce.mp4" type="video/mp4">
+            Tarayıcınız video etiketini desteklemiyor.
+        </video>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dilSecimi = document.getElementById('dilSecimi');
+            const videoOynatici = document.getElementById('videoOynatici');
+
+            dilSecimi.addEventListener('change', function() {
+                const secilenDil = dilSecimi.value;
+                let videoURL;
+
+                switch(secilenDil) {
+                    case 'tr':
+                        videoURL = 'videos/türkce.mp4'; // Türkçe video dosyasının adı
+                        break;
+                    case 'en':
+                        videoURL = 'videos/ingilizce.mp4'; // İngilizce video dosyasının adı
+                        break;
+                    case 'mt':
+                        videoURL = 'videos/motivasyon.mp4'; // Motivasyon video dosyasının adı
+                        break;
+                    case 'kr':
+                        videoURL = 'videos/kurtce.mp4'; // K*rtçe video dosyasının adı
+                        break;
+                    case 'ab':
+                        videoURL = 'videos/arapca.mp4'; // Arapça video dosyasının adı
+                        break;
+                    case 'gr':
+                        videoURL = 'videos/almanca.mp4'; // Almanca video dosyasının adı
+                        break;
+                    case 'bn':
+                        videoURL = 'videos/iki net.mp4'; // Bonus video dosyasının adı
+                        break;
+                    default:
+                        videoURL = 'videos/türkce.mp4'; // Varsayılan video dosyası
+                        break;
+                    }
+
+                // Videoyu güncelle
+                videoOynatici.src = videoURL;
+            });
+        });
+    </script>
+    <footer>
+        <h1>Created By ar3s & Marjinal </h1>
+    </footer>
+</body>
+</html>
